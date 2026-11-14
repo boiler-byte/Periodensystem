@@ -19,12 +19,12 @@ window.PSE_CONTENT.elements[3] = {
   facts: [{ title: 'Leichtes Metall', text: 'Besonderheit' }],
   safety: 'Optionaler Gefahrenhinweis oder null',
   image: {
-    src: 'assets/elements/lithium.svg',
-    alt: 'Schematische Visualisierung zu Lithium',
-    caption: 'Stilisierte Darstellung',
-    kind: 'Schematische SVG-Illustration, kein Originalfoto',
-    credit: 'Originalgrafik für dieses Projekt (2026)',
-    license: 'MIT (Projektlizenz)',
+    src: 'assets/elements/lithium.webp',
+    alt: 'KI-generierte Studioillustration zu Lithium, keine echte Stoffprobe',
+    caption: 'Lithium – generierte Elementillustration',
+    kind: 'KI-generierte Illustration; keine dokumentarische Aufnahme',
+    credit: 'OpenAI-generierte Sammelillustration, zugeschnitten (2026)',
+    license: null,
     licenseUrl: null,
     sourceUrl: null
   },
@@ -42,9 +42,9 @@ window.PSE_CONTENT.elements[3] = {
   (historische Einordnung). Ein `~` trennt bei Anwendungen und Fakten den
   Titel vom Beschreibungstext. Ein `;` trennt die einzelnen Beispiele.
 - **Sechs ursprüngliche Elemente:** `scripts/source/original-six.json`.
-- **Fotoersatz:** Wenn `scripts/source/photo-overrides.json` existiert,
-  überschreibt dessen Bildreferenz das ursprüngliche Motiv. Der Importer
-  kann diese Datei automatisch befüllen.
+- **Bild-Overrides:** `scripts/source/photo-overrides.json` enthält 112 lokale WebP-Referenzen.
+  Sie ersetzen die generierten SVG-Fallbacks ohne Datenverlust. Ein späterer
+  Commons-Import kann ausgewählte Referenzen durch lizenzierte Fotos ersetzen.
 - **Generierung:** `node scripts/build-content.mjs` erzeugt
   `data/element-content.js` und die 112 schematischen SVG-Grafiken erneut.
 - **Offline-Cache aktualisieren:** `node scripts/sync-cache.mjs` bildet eine
@@ -54,8 +54,10 @@ window.PSE_CONTENT.elements[3] = {
 
 ## Bildarten
 
-Es gibt **sechs KI-Illustrationen**, **112 schematische Vektorgrafiken** und
-vorerst **null authentische Fotos**. Die Bildart steht im Feld `image.kind`
+Es gibt **118 KI-Illustrationen** und **null authentische Fotos**.
+112 der Bilder wurden aus KI-generierten Gruppentafeln zugeschnitten; das
+vergrößerte Exportformat (640 × 400) ist nicht mit voller ursprünglicher
+Quellauflösung gleichzusetzen. Die Bildart steht im Feld `image.kind`
 und wird im Profil sichtbar gekennzeichnet. Ein späterer Fotoimport sollte
 zusätzlich Autor, Lizenz, Lizenz-Link und Original-Dateiseite angeben.
 

@@ -1,8 +1,8 @@
 /**
- * Reproduzierbarer Offline-Build für redaktionelle Inhalte und schematische SVGs.
+ * Reproduzierbarer Offline-Build für Profile, SVG-Fallbacks und Bild-Overrides.
  * Node >= 18; keine externen npm-Pakete, keine Netzwerkverbindung.
  * Aufruf aus Projektordner: node scripts/build-content.mjs
- * Bestehende KI-WebP-Bilder der sechs Vorlagen werden nicht überschrieben.
+ * Bestehende und per Overrides referenzierte KI-WebP-Bilder werden nicht überschrieben.
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
@@ -182,4 +182,4 @@ if (Object.keys(catalog).length !== 118) throw new Error('Es werden 118 Profile 
 const output = { schemaVersion: 2, updated: '2026-11-14', elements: catalog };
 writeFileSync(join(root, 'data/element-content.js'),
   `/* Alle 118 redaktionellen Elementprofile – lokale Daten; generiert durch scripts/build-content.mjs.\n * Ursprung: scripts/source/*.tsv, original-six.json und optionale photo-overrides.json.\n * Nutzung auch über file:// ohne Netzwerkabruf. */\n(function (global) { 'use strict'; global.PSE_CONTENT = ${JSON.stringify(output,null,2)}; })(window);\n`);
-console.log(`Daten: ${Object.keys(catalog).length} Elemente. Bilder: ${missingNumbers.length} schematische SVGs + 6 ursprüngliche WebP-Bilder. Fotos: ${Object.keys(photoOverrides).length} Overrides.`);
+console.log(`Daten: ${Object.keys(catalog).length} Elemente. SVG-Fallbacks: ${missingNumbers.length}. Weitere Bild-Overrides: ${Object.keys(photoOverrides).length}.`);

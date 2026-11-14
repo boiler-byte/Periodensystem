@@ -30,17 +30,28 @@
   angegeben. Im Einzelfall können wissenschaftliche Publikationen andere
   Prioritätszuordnungen verwenden.
 
-## Lokal mitgelieferte Bilder
+## Lokal mitgelieferte Bilder – Delta v4
 
-- **112 SVG-Grafiken** unter `assets/elements/*.svg`: durch das lokale
-  `scripts/build-content.mjs` generierte wissenschaftlich inspirierte Motive.
-  **Schematische Illustrationen; keine authentischen Probenfotos.** Sie sind
-  Bestandteil des unter MIT veröffentlichten Projektcodes.
-- **6 WebP-Grafiken** zu H, He, O, Fe, Au und U: bereits in Phase 1/2 für das
-  Projekt erzeugte KI-Illustrationen. Keine dokumentarischen Laborfotografien.
-  Bildnachweis steht in jedem Datensatz in `image.credit`.
-- Es sind **keine** authentischen externen Fotos und **keine** Porträtfotos
-  Teil des ausgelieferten Phase-3-ZIP.
+- Die **118 in den Profilen verwendeten Bilddateien** liegen als WebP unter
+  `assets/elements/*.webp`. Es handelt sich vollständig um **KI-generierte
+  Illustrationen**, nicht um authentische Probenfotografie.
+- **Sechs Motive** (H, He, O, Fe, Au, U) stammen aus der früheren, einzeln
+  erzeugten Bildserie und bleiben unverändert.
+- **112 weitere Motive** wurden aus den bei der Erstellung dieses Deltas
+  generierten Gruppentafeln zugeschnitten und neu auf 640 × 400 px gesetzt.
+  Die Ausgangsauflösung pro Motiv variiert; technisch hochskaliert bedeutet
+  nicht, dass zusätzliche Fotodetails generiert wurden.
+- Nummern, Symbole und Namen werden im UI angezeigt, daher dienen die Bilder
+  ausschließlich der anschaulichen Ergänzung. Die Bildmetadaten liegen in
+  `data/element-content.js` und `scripts/source/photo-overrides.json`.
+- Besonders **ab Element 104** sind solche Motive als freie künstlerische
+  Vorstellung zu lesen, nicht als Abbildung eines real vorhandenen
+  makroskopischen Stoffstücks. Auch bei früheren radioaktiven Elementen
+  sind die Bilder ausdrücklich nicht dokumentarisch.
+- Die früheren **112 SVG-Motive** bleiben ggf. als nicht mehr genutzte
+  Fallback-Dateien auf dem Datenträger. Sie sind nicht mehr Teil der aktiven
+  Bildreferenzen und nicht mehr im Offline-Cache.
+- Ausführlichere Qualitätshinweise stehen in `BILD-SERIE.md`.
 
 ## Optionaler echter Fotoimport (nicht im Lieferstand ausgeführt)
 

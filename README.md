@@ -49,9 +49,9 @@ muss ausgeführt werden**, damit das Projekt funktioniert.
 - Entdeckungsdaten mit mehreren Beteiligten, differenzierten Jahresangaben
   oder „seit der Antike / Vorgeschichte bekannt“. Bei sehr schweren Elementen
   steht Forschung statt erfundener Alltagsanwendungen im Mittelpunkt.
-- 112 eigenständige **schematische SVG-Motive** und sechs vorhandene
-  **KI-generierte WebP-Illustrationen**. **Dies sind keine authentischen Fotos**
-  von Elementproben. Schematische Darstellungen sind entsprechend beschriftet.
+- 118 **KI-generierte WebP-Illustrationen**: sechs zuvor einzeln erzeugte Motive und 112 aus größeren KI-generierten Sammelkompositionen zugeschnittene Motive.
+  **Dies sind keine authentischen Fotos** von Elementproben. Besonders kurzlebige/synthetische Elemente werden ausdrücklich symbolisch dargestellt.
+  Die aus größeren Kompositionen zugeschnittenen Bilder besitzen eine geringere ursprüngliche Detailauflösung als separat erzeugte Motive (siehe `BILD-SERIE.md`).
 - Alle 118 Bilddateien werden im PWA-Service-Worker für den Offlinebetrieb
   vorgemerkt; der Cache aktualisiert sich durch eine neue Versionskennung.
 - Ein offlinefähiger, reproduzierbarer Generator für Profilinhalte und SVGs.
@@ -73,8 +73,9 @@ periodensystem/
 ├── assets/
 │   ├── elements/
 │   │   ├── hydrogen.webp          # sechs frühere KI-Illustrationen
-│   │   ├── ...
-│   │   ├── lithium.svg            # 112 schematische Vektormotive
+│   │   ├── lithium.webp           # weitere KI-generierte Studiomotive
+│   │   ├── ...                    # 118 verwendete WebP-Illustrationen
+│   │   ├── lithium.svg            # veraltetes, nicht verwendetes Fallback
 │   │   └── photos/                # optional: Wikimedia-Fotos nach Import
 │   ├── discoverers/              # vorbereitet, keine Porträts
 │   └── icon-*.png / icon.svg
@@ -88,6 +89,7 @@ periodensystem/
 │   │   ├── profiles.tsv           # 112 handredigierte Profile
 │   │   ├── discoveries.tsv        # 112 Entdeckungsgeschichten
 │   │   ├── original-six.json      # Ausgangsbestand der sechs Profile
+│   │   ├── photo-overrides.json  # alle 112 neuen Bildreferenzen
 │   │   └── photo-overrides.json   # optional, nach Fotoimport
 │   ├── build-content.mjs          # offline: Daten + SVGs regenerieren
 │   ├── sync-cache.mjs             # offline: Service-Worker aktualisieren
@@ -191,3 +193,21 @@ fachwissenschaftliche Datenbank. Seltene bzw. superschwere Elemente haben nur
 wenige Messdaten; manche Eigenschaften sind theoretisch. Für Unterricht,
 Publikation oder kommerzielle Nutzung sollten historisch umstrittene Angaben
 und jede importierte Bilddatei vorab gegengeprüft werden.
+
+## Bildserie – Delta v4 (November 2026)
+
+Die sechs ursprünglichen WebP-Motive (H, He, O, Fe, Au, U) bleiben unverändert.
+Für die restlichen 112 Elemente wurden WebP-Bilder lokal eingebunden (davon
+106 außerhalb des akzeptierten Pilotsets und sechs bisher noch nicht in der
+PWA integrierte Pilotmotive). Sie liegen vollständig offline vor.
+
+Die Bilder stammen aus KI-generierten Gruppentafeln und wurden zugeschnitten,
+von Beschriftung bereinigt und auf 640 × 400 px exportiert. **Die tatsächliche
+Quellauflösung ist je nach Gruppe niedriger.** Insbesondere die Bilder der
+superschweren Elemente sind frei interpretierte Symbole und keine Nachweise
+einer makroskopischen Substanz. Einzelheiten siehe `BILD-SERIE.md`.
+
+Bildreferenzen werden in `scripts/source/photo-overrides.json` gepflegt und
+beim Neuaufbau mit `node scripts/build-content.mjs` wieder übernommen.
+Die alten SVG-Dateien sind allenfalls Fallbacks und werden im normalen
+PWA-Betrieb nicht mehr referenziert oder offline gecacht.
