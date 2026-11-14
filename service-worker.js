@@ -1,6 +1,6 @@
 /* Automatisch generierter, versionierter PWA-Offline-Cache.
  * Nach Daten-/Bildänderungen: node scripts/sync-cache.mjs */
-const CACHE_NAME = "periodensystem-shell-v4-3421a04aab59";
+const CACHE_NAME = "periodensystem-shell-v5-a06dc5e2f8e0";
 const APP_FILES = [
   "./",
   "./index.html",

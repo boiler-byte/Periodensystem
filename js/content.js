@@ -22,15 +22,15 @@
     const pic = item?.image;
     if (!pic?.src) return '';
     return `<figure class="content-figure">
-      <div class="content-image-frame">
+      <div class="content-image-frame" tabindex="0" role="group" aria-label="Bildnachweis anzeigen">
         <img src="${escape(pic.src)}" alt="${escape(pic.alt)}" width="512" height="512" loading="lazy" decoding="async">
         <span class="image-type">${/Fotograf/i.test(pic.kind) ? 'FOTOGRAFIE' : /Schematisch/i.test(pic.kind) ? 'SCHEMATISCH' : 'ILLUSTRATION'}</span>
+        <figcaption>
+          <span>${escape(pic.caption)}</span><small>${escape(pic.kind)} · ${escape(pic.credit)}</small>
+          ${pic.license ? `<small>Lizenz: ${pic.licenseUrl ? `<a href="${escape(pic.licenseUrl)}" target="_blank" rel="noopener noreferrer">${escape(pic.license)}</a>` : escape(pic.license)}</small>` : ''}
+          ${pic.sourceUrl ? `<a class="image-original-link" href="${escape(pic.sourceUrl)}" target="_blank" rel="noopener noreferrer">Originalbild und Bildnachweis ↗</a>` : ''}
+        </figcaption>
       </div>
-      <figcaption>
-        <span>${escape(pic.caption)}</span><small>${escape(pic.kind)} · ${escape(pic.credit)}</small>
-        ${pic.license ? `<small>Lizenz: ${pic.licenseUrl ? `<a href="${escape(pic.licenseUrl)}" target="_blank" rel="noopener noreferrer">${escape(pic.license)}</a>` : escape(pic.license)}</small>` : ''}
-        ${pic.sourceUrl ? `<a class="image-original-link" href="${escape(pic.sourceUrl)}" target="_blank" rel="noopener noreferrer">Originalbild und Bildnachweis ↗</a>` : ''}
-      </figcaption>
     </figure>`;
   }
   function navigation(tab) {

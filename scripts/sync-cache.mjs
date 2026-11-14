@@ -24,7 +24,7 @@ for (const path of files) {
   if (!existsSync(full)) throw Error('Fehlende Offline-Datei: '+path);
   hash.update(path).update(readFileSync(full));
 }
-const version = 'periodensystem-shell-v4-' + hash.digest('hex').slice(0,12);
+const version = 'periodensystem-shell-v5-' + hash.digest('hex').slice(0,12);
 const worker = `/* Automatisch generierter, versionierter PWA-Offline-Cache.\n * Nach Daten-/Bildänderungen: node scripts/sync-cache.mjs */\nconst CACHE_NAME = ${JSON.stringify(version)};\nconst APP_FILES = ${JSON.stringify(files,null,2)};\n
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
