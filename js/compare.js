@@ -1,4 +1,4 @@
-/* Einfacher Vergleich: eines der 118 Elemente im Dropdown auswählen. */
+/* Elementvergleich: Dialog öffnet zunächst mit Partnerwahl. */
 (function (global) {
   'use strict';
   const PSE = global.PSE;
@@ -14,18 +14,22 @@
   }
 
   function content(a, b) {
-    return `<section class="compare-window" aria-label="Vergleich von ${PSE.escape(a.name)} und ${PSE.escape(b.name)}">
+    const heading = b
+      ? `Vergleich von ${PSE.escape(a.name)} und ${PSE.escape(b.name)}`
+      : `Vergleich starten: ${PSE.escape(a.name)}`;
+    return `<section class="compare-window" aria-label="${heading}">
       <div class="compare-window-heading">
         <div><span class="eyebrow">ELEMENTE GEGENÜBERSTELLEN</span><h2>Elementvergleich</h2></div>
         <button type="button" class="icon-btn" data-action="close-dialog" aria-label="Vergleich schließen">✕</button>
       </div>
       <label class="compare-picker compare-picker-inline">
-        <span>VERGLEICHSPARTNER ÄNDERN</span>
-        <select data-action="change-partner" aria-label="Anderes Vergleichselement auswählen">
-          ${options(a.number, b.number)}
+        <span>${PSE.escape(a.name)} VERGLEICHEN MIT</span>
+        <select data-action="change-partner" aria-label="Vergleichspartner für ${PSE.escape(a.name)} auswählen" ${b ? '' : 'autofocus'}>
+          <option value="" ${b ? '' : 'selected'} disabled>Element auswählen …</option>
+          ${options(a.number, b?.number)}
         </select>
       </label>
-      <div class="comparison-table-scroll">
+      ${b ? `<div class="comparison-table-scroll">
         <table class="comparison-table"><thead><tr>
           <th scope="col">Eigenschaft</th>
           <th scope="col"><span class="comparison-symbol">${a.symbol}</span>${PSE.escape(a.name)}</th>
@@ -41,7 +45,8 @@
           ${specRow('Kovalenzradius', a.covalentRadiusPm == null ? '–' : `${a.covalentRadiusPm} pm`, b.covalentRadiusPm == null ? '–' : `${b.covalentRadiusPm} pm`)}
         </tbody></table>
       </div>
-      <p class="modal-footnote">Die Werte stammen aus dem lokal eingebundenen Datensatz. Atomradien sind Näherungswerte.</p>
+      <p class="modal-footnote">Die Werte stammen aus dem lokal eingebundenen Datensatz. Atomradien sind Näherungswerte.</p>`
+      : `<div class="compare-empty" role="status"><strong>${PSE.escape(a.name)} (${a.symbol})</strong>Wähle oben ein zweites Element aus, um die Stoffdaten direkt gegenüberzustellen.</div>`}
     </section>`;
   }
 
@@ -64,8 +69,8 @@
     },
     show(firstNumber, secondNumber) {
       const first = PSE.byNumber.get(firstNumber);
-      const second = PSE.byNumber.get(secondNumber);
-      if (!first || !second || first.number === second.number) return;
+      const second = secondNumber == null ? null : PSE.byNumber.get(secondNumber);
+      if (!first || (secondNumber != null && !second) || (second && first.number === second.number)) return;
       const partnerFocused = root.contains(document.activeElement) &&
         document.activeElement.matches('[data-action="change-partner"]');
       root.innerHTML = content(first, second);

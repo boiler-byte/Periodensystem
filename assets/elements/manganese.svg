@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 320" width="512" height="320" role="img" aria-label="Mangan: schematisches Elementmotiv">
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#07131f"/><stop offset="1" stop-color="#12283e"/></linearGradient>
+    <linearGradient id="mineral" x2=".9" y2="1"><stop stop-color="#e6f8ff"/><stop offset=".27" stop-color="#76bbff"/><stop offset=".75" stop-color="#3055a6"/><stop offset="1" stop-color="#0e253a"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#d7ebff" stop-opacity=".18"/><stop offset="1" stop-color="#6aa6e9" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="liquid" x2="1" y2=".8"><stop stop-color="#76bbff"/><stop offset="1" stop-color="#3055a6"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#76bbff" stop-opacity=".5"/><stop offset="1" stop-color="#76bbff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="tube"><stop stop-color="#76bbff" stop-opacity=".33"/><stop offset="1" stop-color="#070f20" stop-opacity=".23"/></radialGradient>
+    <filter id="glow" x="-80%" y="-100%" width="260%" height="300%"><feGaussianBlur stdDeviation="11"/></filter>
+    <filter id="shadow" x="-60%" y="-60%" width="240%" height="240%"><feDropShadow dx="0" dy="18" stdDeviation="13" flood-color="#000" flood-opacity=".45"/></filter>
+  </defs>
+  <rect width="512" height="320" fill="url(#background)"/>
+  <circle cx="263" cy="155" r="182" fill="#3055a6" opacity=".12"/>
+  <circle cx="139" cy="205" r="2" fill="#b3dcff" opacity="0.1"/><circle cx="212" cy="246" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="285" cy="287" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="358" cy="64" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="431" cy="105" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="44" cy="146" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="117" cy="187" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="190" cy="228" r="2" fill="#b3dcff" opacity="0.2"/><circle cx="263" cy="269" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="336" cy="46" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="409" cy="87" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="482" cy="128" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="95" cy="169" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="168" cy="210" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="241" cy="251" r="2" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="314" cy="292" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="387" cy="69" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="460" cy="110" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="73" cy="151" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="146" cy="192" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="219" cy="233" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="292" cy="274" r="2" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="365" cy="51" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="438" cy="92" r="1" fill="#b3dcff" opacity="0.25"/>
+  <g opacity=".5" stroke="#5c8eaa" fill="none"><path d="M20 56h70m-70 0v24m472 184h-70m70 0v-24"/></g>
+  <g filter="url(#shadow)"><path d="M179 219 L158 138 L206 93 L301 84 L357 149 L338 226 L273 263 L198 253Z" fill="url(#mineral)" stroke="#76bbff" stroke-width="2"/>
+      <path d="M158 138 L206 93 L239 161 L198 253 L179 219Z" fill="#76bbff" opacity=".44"/>
+      <path d="M206 93 L301 84 L357 149 L239 161Z" fill="#76bbff" opacity=".23"/>
+      <path d="M239 161 L357 149 L338 226 L273 263 L198 253Z" fill="#3055a6" opacity=".74"/>
+      <path d="M206 93 L239 161 L357 149" fill="none" stroke="#f2fcff" stroke-opacity=".4" stroke-width="2"/>
+      <path d="M239 161 L198 253" stroke="#f2fcff" stroke-opacity=".15" stroke-width="2"/></g>
+  <rect x="18" y="16" width="66" height="63" rx="10" fill="#08121e" fill-opacity=".9" stroke="#76bbff" stroke-opacity=".55"/>
+  <text x="28" y="33" font-family="sans-serif" font-size="11" fill="#92a7bb">025</text>
+  <text x="28" y="68" font-family="sans-serif" font-weight="700" font-size="32" fill="#76bbff">Mn</text>
+  <text x="496" y="297" text-anchor="end" fill="#c5d6e7" font-family="sans-serif" font-size="12">Mangan</text>
+  <text x="18" y="299" fill="#708ba4" font-family="sans-serif" font-size="9" letter-spacing="1.7">SCHEMATISCHE ILLUSTRATION</text>
+</svg>

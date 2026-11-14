@@ -1,92 +1,193 @@
-# Periodensystem – Vanilla-JavaScript-PWA
+# Periodensystem – Phase 3
 
-Ein vollständiges interaktives Periodensystem mit 118 Elementen, ohne Framework, CDN, Node-Pakete oder andere Laufzeit-Abhängigkeiten.
+**118 interaktive, redaktionell ausgearbeitete Elementprofile** mit Geschichte,
+Entdeckern bzw. Forschungsgruppen, Anwendungsbeispielen, Wissenswertem,
+Sicherheitshinweisen, Quellen und **118 lokal gespeicherten Bildassets**.
 
-## Direkt lokal öffnen
+Vollständig lokal lauffähige HTML-/CSS-/Vanilla-JavaScript-PWA, ohne Framework,
+CDN, API-Schlüssel oder Netzwerkzugriff zur Laufzeit.
 
-1. ZIP entpacken.
-2. `index.html` doppelklicken.
-3. Suche, Filter, Elementprofile und Vergleiche nutzen – ohne Internet.
+## Starten
 
-`data/elements.js` enthält sämtliche Elemente als JavaScript-Datenobjekt. Es gibt keine `fetch`-Anfrage nach einer JSON-Datei, keine dynamischen ES-Modulimporte und keine Netzwerkpflicht.
-
-**Wichtig:** Beim Öffnen als `file://` funktioniert die Anwendung, aber **PWA-Installation und Service Worker funktionieren nicht über `file://`**. Dafür die App über `localhost` oder HTTPS bereitstellen (nächster Abschnitt).
-
-## Als installierbare Offline-PWA starten
-
-1. Ein Terminal im entpackten Projektordner öffnen.
-2. Einen einfachen lokalen Webserver starten (Python 3 genügt):
+1. Projekt entpacken und `index.html` per Doppelklick öffnen.
+2. Für die **installierbare PWA mit Offline-Service-Worker** (braucht localhost
+   oder HTTPS) im Projektordner starten:
 
    ```bash
    python3 -m http.server 8000
    ```
 
-   Alternativ unter Windows: `py -m http.server 8000`.
+3. `http://localhost:8000/` im Browser öffnen. Die Anwendung kann nach
+   erfolgreicher Offline-Vorbefüllung auch ohne Internet genutzt werden.
 
-3. Im Browser `http://localhost:8000/` öffnen. Beim ersten Aufruf können der Service Worker und alle App-Dateien gecacht werden.
-4. Nach dem ersten vollständigen Online-Aufruf funktioniert die App **offline**. In unterstützten Browsern über die Browser-Installation bzw. die Schaltfläche „Installieren“ installieren. Auf iOS kann man über „Teilen“ → „Zum Home-Bildschirm“ hinzufügen.
+Die 118 Texte und Illustrationen liegen schon im Projekt. **Kein Importskript
+muss ausgeführt werden**, damit das Projekt funktioniert.
 
-Für ein echtes Deployment genügt ein statischer HTTPS-Webserver. Der Service Worker stellt die App-Dateien aus einem versionsbasierten Cache bereit und ermöglicht den Start ohne Verbindung. Für Updates `CACHE_NAME` in `service-worker.js` hochzählen.
+## Oberfläche – Delta v2
 
-## Funktionen
+- Der kompakte Kopfbereich zeigt Eisen (Fe, 26) als Brand-Kachel; die große
+  Einführungssektion und die zusätzliche Offline-Statusanzeige entfallen.
+- Über das **Trichter-Symbol „Filter“** wird das anfangs ausgeblendete Panel
+  mit Suche, Elementfamilie, Aggregatzustand und Favoriten ein- bzw. ausgeblendet.
+  Mit `/` lässt es sich öffnen und die Suche fokussieren; `Esc` schließt es
+  (bei einer nichtleeren Suche wird diese zuerst geleert). Ein Punkt am
+  Filter-Button signalisiert aktive Filter auch bei geschlossenem Panel.
+- **Fav.** und **Vergleich** liegen jetzt direkt im Elementprofil neben dem Namen.
+  **Vergleich** öffnet sofort den Vergleichsdialog, in dem der Vergleichspartner
+  ausgewählt wird. Browser-Zurück schließt den Vergleich wie zuvor; auf
+  Mobilgeräten erscheint danach das Profil wieder.
+- Diese Änderungen sind ausschließlich UI-Anpassungen. Die 118 Elementdaten und
+  Bilddateien bleiben unverändert.
 
-- Alle 118 Elemente im Periodensystem, mit deutschen und englischen Namen.
-- Suche nach Name, Symbol oder Ordnungszahl; Filter für Elementfamilie und Aggregatzustand sowie Favoritenfilter.
-- Farbcodierung nach Elementfamilie, Aggregatzustand oder Atommasse.
-- Elementprofil mit Eigenschaften, Elektronenkonfiguration und Schalenmodell.
-- **Mobile Profile als modale Dialoge**, auf dem Desktop in der rechten Seitenleiste.
-- **Einfacher Vergleich über „Vergleichen mit“:** Eine Liste mit allen 118 Elementen; nach Auswahl öffnet sich der Vergleich automatisch. Den Vergleichspartner kann man im Dialog ändern.
-- **Browser-Zurück** schließt den aktuellen Dialog. Bei einem Vergleich, der aus einem mobilen Profil geöffnet wurde, führt Zurück zunächst zum Profil, anschließend zur Elementübersicht. Browser-Vorwärts öffnet den Dialog wieder.
-- Tastenkombination `/` für die Suche, Pfeiltasten zur Navigation zwischen Kacheln, Escape für das Schließen des aktiven Dialogs.
-- Dunkles und helles Farbschema; Favoriten und Design werden lokal gespeichert, sofern verfügbar.
-- Installierbare PWA mit App-Icon, Manifest und Service-Worker-Cache; keine externen Abhängigkeiten.
+## Phase 3: Was ist enthalten?
 
-## Verzeichnisstruktur
+- 118 Profilseiten mit den vier Bereichen **Daten, Geschichte, Verwendung
+  und Wissen**. Alle Quellen stehen direkt am Profil.
+- 112 neu geschriebene deutschsprachige Profile zusätzlich zu den sechs
+  vorhandenen erweiterten Profilen (Wasserstoff, Helium, Sauerstoff, Eisen,
+  Gold, Uran).
+- Entdeckungsdaten mit mehreren Beteiligten, differenzierten Jahresangaben
+  oder „seit der Antike / Vorgeschichte bekannt“. Bei sehr schweren Elementen
+  steht Forschung statt erfundener Alltagsanwendungen im Mittelpunkt.
+- 112 eigenständige **schematische SVG-Motive** und sechs vorhandene
+  **KI-generierte WebP-Illustrationen**. **Dies sind keine authentischen Fotos**
+  von Elementproben. Schematische Darstellungen sind entsprechend beschriftet.
+- Alle 118 Bilddateien werden im PWA-Service-Worker für den Offlinebetrieb
+  vorgemerkt; der Cache aktualisiert sich durch eine neue Versionskennung.
+- Ein offlinefähiger, reproduzierbarer Generator für Profilinhalte und SVGs.
+- Ein optionaler Wikimedia-Commons-Importer mit technischen Lizenzprüfungen
+  für das *spätere* Ersetzen von Illustrationen durch lokale Fotos.
+- Ein optionaler Online-Abgleich von Entdeckungsjahren gegen einen API-Datensatz.
+
+## Projektstruktur
 
 ```text
-periodensystem-pwa/
-├── index.html                 # HTML-Seite, native Dialog-Container
-├── manifest.webmanifest       # Name, Start-URL, Display-Modus und App-Icons
-├── service-worker.js          # Offline-Cache und Cache-Aktualisierung
-├── assets/
-│   ├── icon.svg
-│   ├── icon-192.png
-│   ├── icon-512.png
-│   ├── icon-maskable-512.png
-│   └── icon-maskable.svg
-├── css/
-│   └── styles.css             # Layout, Themes, Responsive Design, Dialoge
+periodensystem/
+├── index.html
+├── manifest.webmanifest
+├── service-worker.js
+├── css/styles.css
 ├── data/
-│   └── elements.js            # Vollständiger Datensatz: 118 Elemente
+│   ├── elements.js                 # 118 chemische Grundprofile
+│   └── element-content.js         # 118 redaktionelle Profile, direkt ladbar
+├── assets/
+│   ├── elements/
+│   │   ├── hydrogen.webp          # sechs frühere KI-Illustrationen
+│   │   ├── ...
+│   │   ├── lithium.svg            # 112 schematische Vektormotive
+│   │   └── photos/                # optional: Wikimedia-Fotos nach Import
+│   ├── discoverers/              # vorbereitet, keine Porträts
+│   └── icon-*.png / icon.svg
 ├── js/
-│   ├── core.js                # Elementfamilien, Farben und Formatierung
-│   ├── store.js               # Zentraler UI-Zustand, Favoriten und Theme
-│   ├── filters.js             # Suche und Filter
-│   ├── table.js               # Kacheln, Grid, Tastaturnavigation
-│   ├── details.js             # Profil-Darstellung und Vergleichsauswahl
-│   ├── compare.js             # Vergleichsdialog und Vergleichstabelle
-│   ├── dialogs.js             # Modal-Steuerung über die History API
-│   ├── ui.js                  # Filter, Theme, Suche und Zufallsauswahl
-│   ├── pwa.js                 # Installation und Service-Worker-Registrierung
-│   └── app.js                 # Initialisierung
+│   ├── content.js                 # Inhalt, Bild-/Lizenznachweise
+│   ├── details.js                 # Profil + Tabs
+│   ├── dialogs.js                 # mobile Modals, Browser-History
+│   ├── compare.js, table.js, ...  # weitere Vanilla-JS-Module
+├── scripts/
+│   ├── source/
+│   │   ├── profiles.tsv           # 112 handredigierte Profile
+│   │   ├── discoveries.tsv        # 112 Entdeckungsgeschichten
+│   │   ├── original-six.json      # Ausgangsbestand der sechs Profile
+│   │   └── photo-overrides.json   # optional, nach Fotoimport
+│   ├── build-content.mjs          # offline: Daten + SVGs regenerieren
+│   ├── sync-cache.mjs             # offline: Service-Worker aktualisieren
+│   ├── validate-content.mjs      # offline: QA und Vollständigkeit
+│   ├── import-wikimedia-photos.mjs# optional online: freie Fotos laden
+│   └── audit-discoveries.mjs      # optional online: Jahreszahlen abgleichen
+├── INHALTSMODELL.md
 ├── QUELLEN.md
-├── LICENSE
-└── README.md
+└── LICENSE
 ```
 
-## Module erweitern
+## Redaktionelle Daten bearbeiten
 
-Alle Module werden klassisch mit `defer` geladen und registrieren ihre öffentliche API unter `window.PSE`. Dieses Design funktioniert auch per Doppelklick auf `index.html`. Neue Module müssen vor `js/app.js` eingebunden werden.
+Für die 112 hinzugefügten Elemente werden Texte in `scripts/source/profiles.tsv`
+und `scripts/source/discoveries.tsv` gepflegt. Die sechs ursprünglichen Profile
+stehen in `scripts/source/original-six.json`. Nach einer Änderung:
 
-- `PSE.Store` hält reaktive UI-Daten.
-- `PSE.Table`, `PSE.Details`, `PSE.Compare` sind voneinander getrennte Darstellungen.
-- `PSE.Dialogs` verwaltet **ein** aktives natives Dialogfenster über `history.pushState()`/`popstate`. Der Dialogtyp und die ausgewählten Elemente werden im History-State gespeichert.
-- `PSE.PWA` nutzt `beforeinstallprompt`, falls der Browser das Ereignis anbietet, und registriert nur auf `http(s)` einen Service Worker. Für lokale Entwicklung ist `http://localhost` ausreichend.
+```bash
+node scripts/build-content.mjs
+node scripts/sync-cache.mjs
+node scripts/validate-content.mjs
+```
 
-## Daten bearbeiten
+Die fertige `data/element-content.js` wird automatisch neu erstellt. Diese Datei
+kann weiterhin wie gewohnt direkt von `index.html` geladen werden; **Node wird
+nur für die optionale redaktionelle Wartung benötigt**.
 
-`data/elements.js` enthält den globalen Datensatz `window.PSE_DATA.elements`. Die Datei ist bereits ausführbares JavaScript: Eine bloß umbenannte JSON-Datei würde **nicht** ausreichen. Beispiele für Felder: `number`, `symbol`, `name`, `nameEn`, `atomicMass`, `category`, `phase`, `group`, `period`, `shells`, `electronConfiguration`.
+## Optionale echte Fotos von Wikimedia Commons
 
-## Daten und Lizenz
+Der ausgelieferte Stand enthält aus Transparenzgründen ausschließlich eigens
+entworfene Illustrationen. Wenn eine Internetverbindung vorhanden ist, kann der
+folgende Importer aus einem frei verfügbaren Periodensystemdatensatz
+Wikimedia-Commons-Fotokandidaten ermitteln. Er prüft die Metadaten bei Commons,
+lädt erlaubte Dateitypen verkleinert lokal und hinterlegt Lizenz-/Urheberangaben.
+Ohne geeignete frei lizenzierte Datei bleibt das SVG erhalten.
 
-Siehe `QUELLEN.md` für Quellen und Datenbeschränkungen. Der Quellcode dieses Projekts ist unter MIT lizenziert (`LICENSE`). Datenwerte sind teilweise Näherungen und eignen sich nicht ungeprüft für wissenschaftliche Berechnungen.
+```bash
+# Zuerst nur Kandidaten ansehen (Internet nötig):
+node scripts/import-wikimedia-photos.mjs --dry-run --only=3,6,29
+
+# Drei einzelne Elemente importieren:
+node scripts/import-wikimedia-photos.mjs --only=3,6,29
+
+# Alle Elemente prüfen; vorhandene Foto-Overrides bleiben erhalten:
+node scripts/import-wikimedia-photos.mjs
+
+# Optional auch die sechs ursprünglichen Illustrationen ersetzen:
+node scripts/import-wikimedia-photos.mjs --replace
+```
+
+**Wichtig:** Der Importer kann Bildrechte nur anhand technischer Angaben
+vorprüfen. Vor jeder öffentlichen Veröffentlichung müssen Bildmotiv, Urheber,
+Originalseite und geltende Lizenz (insbesondere CC BY-SA) **manuell geprüft**
+werden. Die Bilder sind möglicherweise keine Fotografien reiner Elemente,
+sondern Spektren, Mineralien oder Verbindungen. Der Importer wurde in dieser
+Umgebung mangels Internetzugang **nicht online ausgeführt**. Damit wird im
+Lieferstand keine Anzahl authentischer Fotos behauptet.
+
+## Optionale Quelldaten aus PubChem und Wikidata aktualisieren
+
+```bash
+node scripts/import-metadata.mjs
+```
+
+Das Skript ruft den offiziellen PubChem-Periodensystemexport und einen
+Wikidata-SPARQL-Datensatz ab. Es speichert ausschließlich **Quellenschnappschüsse**
+in `scripts/source/import-pubchem.json` und `scripts/source/import-wikidata.json`
+und überschreibt keine redaktionellen Profile. Wikidata-Angaben (insbesondere
+Datumspräzision, Entdecker und Bildlizenzen) erfordern vor einer Übernahme
+fachliche Prüfung. Der Online-Import konnte in der Erstellungsumgebung
+mangels Netzwerkzugang nicht live getestet werden.
+
+## Optionaler Quellenabgleich für historische Angaben
+
+```bash
+node scripts/audit-discoveries.mjs
+```
+
+Das Skript erstellt `scripts/source/discovery-audit.json`, ohne die redaktionell
+bewusst differenzierten Jahresangaben zu überschreiben. Historische Angaben
+können sich auf Erstbeobachtung, Isolierung, Identifikation oder Anerkennung
+beziehen und müssen daher fachlich eingeordnet werden. Die redaktionellen
+Einträge wurden nicht automatisiert für jedes Element gegen eine Online-API
+verifiziert.
+
+## Bestehende App-Funktionen
+
+- Suche und Filter über alle 118 Elemente; drei Farbdarstellungen.
+- Desktop: Elementdaten in der rechten Seitenleiste.
+- Mobil: native Profil-Dialoge mit Tabs und scrollbaren Inhalten.
+- Vergleich über Dropdown, danach Vergleichs-Dialog.
+- Browser-Zurück schließt Dialoge, Vorwärts stellt sie wieder her.
+- Favoriten, Dark/Light-Modus und Tastaturnavigation.
+- Für Installation/Offline-Cache localhost oder HTTPS. Direkter `file://`-Start
+  ist auch ohne Service Worker möglich.
+
+## Fachliche und urheberrechtliche Einordnung
+
+Siehe `QUELLEN.md`. Der Inhalt ist ein didaktischer Einstieg, keine vollständige
+fachwissenschaftliche Datenbank. Seltene bzw. superschwere Elemente haben nur
+wenige Messdaten; manche Eigenschaften sind theoretisch. Für Unterricht,
+Publikation oder kommerzielle Nutzung sollten historisch umstrittene Angaben
+und jede importierte Bilddatei vorab gegengeprüft werden.

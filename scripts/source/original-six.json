@@ -1,0 +1,396 @@
+{
+  "1": {
+    "description": "Wasserstoff ist das leichteste chemische Element. Auf der Erde kommt er meist gebunden vor, etwa in Wasser und organischen Verbindungen. Als reines Gas ist er farb- und geruchlos.",
+    "discovery": {
+      "label": "1766",
+      "year": 1766,
+      "era": "18. Jahrhundert",
+      "people": [
+        {
+          "name": "Henry Cavendish",
+          "role": "Erkannte Wasserstoff als eigenständiges Gas (1766)"
+        },
+        {
+          "name": "Antoine Lavoisier",
+          "role": "Gab dem Gas später seinen Namen"
+        }
+      ],
+      "narrative": "Schon vor Cavendish war bei Reaktionen von Metallen mit Säuren ein brennbares Gas beobachtet worden. Cavendish untersuchte es systematisch und unterschied es 1766 von anderen Gasen. Später wurde gezeigt, dass bei seiner Verbrennung Wasser entsteht.",
+      "note": "Die frühere Erzeugung eines Stoffes ist nicht mit seiner Identifizierung als eigenes Element gleichzusetzen."
+    },
+    "uses": [
+      {
+        "title": "Ammoniaksynthese",
+        "text": "Wasserstoff ist ein wichtiger Ausgangsstoff für die Herstellung von Ammoniak und damit vieler Düngemittel."
+      },
+      {
+        "title": "Brennstoffzellen",
+        "text": "In Brennstoffzellen kann Wasserstoff mit Sauerstoff elektrische Energie liefern; am Einsatzort entsteht dabei Wasser."
+      },
+      {
+        "title": "Chemische Industrie",
+        "text": "Er wird unter anderem zur Methanolherstellung und zur Entfernung von Schwefel aus Kraftstoffen verwendet."
+      },
+      {
+        "title": "Energiespeicherung",
+        "text": "Elektrolytisch hergestellter Wasserstoff kann erneuerbare Energie chemisch speichern; die Gesamtbilanz hängt von seiner Herstellung ab."
+      }
+    ],
+    "facts": [
+      {
+        "title": "Nummer eins",
+        "text": "Ein gewöhnliches Wasserstoffatom besitzt einen Protonenkern und ein Elektron."
+      },
+      {
+        "title": "Im Universum häufig",
+        "text": "Wasserstoff ist das häufigste chemische Element im Universum und ein Hauptbestandteil vieler Sterne."
+      },
+      {
+        "title": "In Sternen",
+        "text": "Bei der Kernfusion in Sternen entstehen aus leichten Atomkernen schwerere Kerne und Energie wird frei."
+      }
+    ],
+    "safety": "Wasserstoff bildet mit Luft leicht entzündliche Gemische. Die Illustration zeigt eine Gasentladung, keine frei brennende Probe.",
+    "image": {
+      "src": "assets/elements/hydrogen.webp",
+      "alt": "Illustration einer rosaviolett leuchtenden Gasentladungsröhre als Motiv für Wasserstoff",
+      "caption": "Gasentladungsröhre als Sinnbild für Wasserstoff",
+      "kind": "KI-generierte Illustration, kein Originalfoto",
+      "credit": "Originalillustration für dieses Projekt (OpenAI, 2026)"
+    },
+    "sources": [
+      {
+        "label": "Royal Society of Chemistry",
+        "url": "https://periodic-table.rsc.org/element/1/hydrogen"
+      },
+      {
+        "label": "PubChem",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/element/1"
+      }
+    ]
+  },
+  "2": {
+    "description": "Helium ist ein sehr leichtes, farb- und geruchloses Edelgas. Es reagiert unter normalen Bedingungen kaum mit anderen Stoffen und wird bei extrem niedrigen Temperaturen flüssig.",
+    "discovery": {
+      "label": "1868",
+      "year": 1868,
+      "era": "19. Jahrhundert",
+      "people": [
+        {
+          "name": "Pierre Janssen",
+          "role": "Beobachtete 1868 eine ungewöhnliche Spektrallinie der Sonne"
+        },
+        {
+          "name": "Norman Lockyer",
+          "role": "Ordnete die Spektrallinie einem neuen Element zu"
+        },
+        {
+          "name": "William Ramsay",
+          "role": "Wies Helium 1895 in einem irdischen Gas nach"
+        }
+      ],
+      "narrative": "Helium wurde zuerst durch das Licht der Sonne erkannt: Während einer Sonnenfinsternis und durch spätere Spektraluntersuchungen wurde 1868 eine vorher unbekannte gelbe Linie beobachtet. Erst 1895 gelang der sichere Nachweis in Material von der Erde; auch Cleve und Langlet arbeiteten dazu.",
+      "note": "1868 bezeichnet die spektroskopische Entdeckung; der irdische Nachweis folgte 1895."
+    },
+    "uses": [
+      {
+        "title": "Kühlung von MRT-Systemen",
+        "text": "Flüssiges Helium dient als Kältemittel für supraleitende Magnete, beispielsweise in Magnetresonanztomografen."
+      },
+      {
+        "title": "Lecksuche",
+        "text": "Das kleine, reaktionsträge Atom macht Helium bei empfindlichen Dichtheitsprüfungen nützlich."
+      },
+      {
+        "title": "Ballons und Luftschiffe",
+        "text": "Wegen seiner geringen Dichte erzeugt Helium Auftrieb und ist nicht brennbar."
+      },
+      {
+        "title": "Schutzgas",
+        "text": "In bestimmten Schweißprozessen und bei der Herstellung empfindlicher Materialien verhindert Helium unerwünschte Reaktionen."
+      }
+    ],
+    "facts": [
+      {
+        "title": "Zuerst auf der Sonne",
+        "text": "Helium ist eines der wenigen Elemente, die zunächst außerhalb der Erde entdeckt wurden."
+      },
+      {
+        "title": "Extrem kalt",
+        "text": "Helium siedet bei normalem Druck bereits bei etwa −269 °C."
+      },
+      {
+        "title": "Nicht einatmen",
+        "text": "Auch ein ungiftiges, inertes Gas kann Sauerstoff verdrängen. Das Einatmen aus Ballons oder Druckbehältern ist gefährlich."
+      }
+    ],
+    "safety": "Helium ist nicht brennbar, kann aber Sauerstoff verdrängen. Niemals absichtlich einatmen.",
+    "image": {
+      "src": "assets/elements/helium.webp",
+      "alt": "Illustration einer orangefarben leuchtenden Gasentladungsröhre als Motiv für Helium",
+      "caption": "Leuchtende Gasentladung als Helium-Motiv",
+      "kind": "KI-generierte Illustration, kein Originalfoto",
+      "credit": "Originalillustration für dieses Projekt (OpenAI, 2026)"
+    },
+    "sources": [
+      {
+        "label": "Royal Society of Chemistry",
+        "url": "https://periodic-table.rsc.org/element/2/helium"
+      }
+    ]
+  },
+  "8": {
+    "description": "Sauerstoff ist ein farb- und geruchloses Gas und für die Atmung der meisten Tiere und Menschen unverzichtbar. Etwa 21 % des Volumens trockener Luft bestehen aus Sauerstoff.",
+    "discovery": {
+      "label": "1771–1774",
+      "year": null,
+      "era": "18. Jahrhundert",
+      "people": [
+        {
+          "name": "Carl Wilhelm Scheele",
+          "role": "Stellte Sauerstoff um 1771 her; publizierte später"
+        },
+        {
+          "name": "Joseph Priestley",
+          "role": "Stellte 1774 Sauerstoff her und veröffentlichte früher"
+        },
+        {
+          "name": "Antoine Lavoisier",
+          "role": "Erklärte seine Bedeutung für Verbrennung und Atmung"
+        }
+      ],
+      "narrative": "Scheele erzeugte Sauerstoff bereits in den frühen 1770er-Jahren. Priestley stellte das Gas 1774 unabhängig her und veröffentlichte seine Beobachtungen früher. Lavoisier deutete die Rolle des Gases bei Verbrennungsprozessen und prägte den Namen.",
+      "note": "Für Sauerstoff gibt es kein unumstrittenes einzelnes Entdeckungsjahr und keinen alleinigen Entdecker."
+    },
+    "uses": [
+      {
+        "title": "Medizin",
+        "text": "Zusätzlicher Sauerstoff kann bei bestimmten Erkrankungen oder in Notfallsituationen eine medizinisch überwachte Behandlung unterstützen."
+      },
+      {
+        "title": "Stahlherstellung",
+        "text": "Sauerstoff wird zur Entfernung von Kohlenstoff und anderen Begleitstoffen aus flüssigem Roheisen eingesetzt."
+      },
+      {
+        "title": "Schweißen und Schneiden",
+        "text": "Sauerstoff unterstützt heiße Brenngasflammen und industrielle Schneidverfahren."
+      },
+      {
+        "title": "Wasseraufbereitung",
+        "text": "Durch Belüftung oder gezielte Sauerstoffzufuhr können biologische Abbauprozesse unterstützt werden."
+      }
+    ],
+    "facts": [
+      {
+        "title": "Ein Fünftel der Luft",
+        "text": "Der Anteil in der trockenen Erdatmosphäre beträgt ungefähr 21 Volumenprozent."
+      },
+      {
+        "title": "Auch in Wasser",
+        "text": "In jedem Wassermolekül H₂O ist ein Sauerstoffatom chemisch gebunden."
+      },
+      {
+        "title": "Blaue Flüssigkeit",
+        "text": "Tiefkalt verflüssigter Sauerstoff hat eine schwach bläuliche Farbe; bei Raumtemperatur ist er gasförmig."
+      }
+    ],
+    "safety": "Sauerstoff ist selbst nicht brennbar, fördert aber Verbrennungen stark. Sauerstoffreiche Umgebungen erhöhen die Brandgefahr.",
+    "image": {
+      "src": "assets/elements/oxygen.webp",
+      "alt": "Illustration eines gekühlten Glaskolbens mit hellblauer Flüssigkeit als Motiv für flüssigen Sauerstoff",
+      "caption": "Tiefkalt verflüssigter Sauerstoff, symbolisch dargestellt",
+      "kind": "KI-generierte Illustration, kein Originalfoto",
+      "credit": "Originalillustration für dieses Projekt (OpenAI, 2026)"
+    },
+    "sources": [
+      {
+        "label": "Royal Society of Chemistry",
+        "url": "https://periodic-table.rsc.org/element/8/oxygen"
+      }
+    ]
+  },
+  "26": {
+    "description": "Eisen ist ein festes, silbergraues Metall. Es ist der wichtigste Ausgangsstoff für Stahl und damit grundlegend für Gebäude, Fahrzeuge und Maschinen.",
+    "discovery": {
+      "label": "Seit der Vorgeschichte",
+      "year": null,
+      "era": "Vorgeschichte",
+      "people": [],
+      "narrative": "Eisen wurde schon in vorgeschichtlicher Zeit genutzt, zunächst auch aus eisenhaltigen Meteoriten. Funde aus Ägypten reichen bis etwa 3500 v. Chr. zurück. Die Verhüttung eisenhaltiger Erze entwickelte sich später in verschiedenen Regionen; ein einzelner Entdecker ist nicht bekannt.",
+      "note": "Eine Jahreszahl für „die“ Entdeckung lässt sich hier nicht seriös angeben."
+    },
+    "uses": [
+      {
+        "title": "Stahl im Bauwesen",
+        "text": "Aus Eisen mit Kohlenstoff und weiteren Zusätzen entstehen Stähle für Brücken, Träger und Betonbewehrung."
+      },
+      {
+        "title": "Maschinen und Fahrzeuge",
+        "text": "Eisenlegierungen werden für Motoren, Werkzeuge, Schienen und zahlreiche Bauteile eingesetzt."
+      },
+      {
+        "title": "Magnetische Werkstoffe",
+        "text": "Eisen und manche Eisenlegierungen sind ferromagnetisch und werden in Elektromotoren und Transformatoren genutzt."
+      },
+      {
+        "title": "Biologie",
+        "text": "Eisen-Ionen sind Bestandteil des Hämoglobins und ermöglichen den Sauerstofftransport im Blut."
+      }
+    ],
+    "facts": [
+      {
+        "title": "Rost",
+        "text": "In Anwesenheit von Wasser und Sauerstoff können sich Eisenoxide und -hydroxide bilden."
+      },
+      {
+        "title": "Nicht jedes Eisen ist Stahl",
+        "text": "Stahl ist eine Legierung auf Eisenbasis, deren Eigenschaften sich durch Zusammensetzung und Verarbeitung stark ändern."
+      },
+      {
+        "title": "Auch aus dem All",
+        "text": "Einige sehr frühe Eisenobjekte wurden aus metallhaltigen Meteoriten gefertigt."
+      }
+    ],
+    "safety": null,
+    "image": {
+      "src": "assets/elements/iron.webp",
+      "alt": "Illustration von drei silbergrauen Metallwürfeln als Motiv für Eisen",
+      "caption": "Bearbeitete Eisenblöcke, symbolisch dargestellt",
+      "kind": "KI-generierte Illustration, kein Originalfoto",
+      "credit": "Originalillustration für dieses Projekt (OpenAI, 2026)"
+    },
+    "sources": [
+      {
+        "label": "Royal Society of Chemistry",
+        "url": "https://periodic-table.rsc.org/element/26/iron"
+      }
+    ]
+  },
+  "79": {
+    "description": "Gold ist ein gelbes, sehr gut verformbares Edelmetall. Es korrodiert unter normalen Bedingungen kaum und kommt in der Natur auch in elementarer Form vor.",
+    "discovery": {
+      "label": "Seit der Vorgeschichte",
+      "year": null,
+      "era": "Vorgeschichte",
+      "people": [],
+      "narrative": "Gold wurde bereits sehr früh als auffälliges Metall in Flüssen und Gestein gefunden und verarbeitet. Schmuck, Grabbeigaben und spätere Münzprägungen belegen eine lange Nutzung. Da Gold seit der Vorgeschichte bekannt ist, gibt es weder einen einzelnen Entdecker noch ein genaues Entdeckungsjahr.",
+      "note": "Geschichte der Verwendung statt einer präzisen Entdeckungsangabe."
+    },
+    "uses": [
+      {
+        "title": "Schmuck",
+        "text": "Gold wird für Schmuck häufig mit anderen Metallen legiert, um seine Härte und Alltagstauglichkeit zu erhöhen."
+      },
+      {
+        "title": "Elektronik",
+        "text": "Dünne Goldschichten schützen bestimmte elektrische Kontakte gegen Korrosion."
+      },
+      {
+        "title": "Wertaufbewahrung",
+        "text": "Gold wird zu Barren und Münzen verarbeitet und als Vermögenswert gehandelt."
+      },
+      {
+        "title": "Technik und Medizin",
+        "text": "Gold wird unter anderem in Spezialbeschichtungen und ausgewählten medizinischen Anwendungen eingesetzt."
+      }
+    ],
+    "facts": [
+      {
+        "title": "Extrem gut formbar",
+        "text": "Aus Gold lassen sich dünnste Bleche herstellen – sogenanntes Blattgold."
+      },
+      {
+        "title": "Chemisch beständig",
+        "text": "Anders als Eisen rostet Gold unter normalen Umgebungsbedingungen nicht."
+      },
+      {
+        "title": "Symbol Au",
+        "text": "Das Elementsymbol leitet sich vom lateinischen Wort „aurum“ ab."
+      }
+    ],
+    "safety": null,
+    "image": {
+      "src": "assets/elements/gold.webp",
+      "alt": "Illustration eines glänzenden Goldnuggets vor dunklem Hintergrund",
+      "caption": "Natürliches Gold als stilisierte Darstellung",
+      "kind": "KI-generierte Illustration, kein Originalfoto",
+      "credit": "Originalillustration für dieses Projekt (OpenAI, 2026)"
+    },
+    "sources": [
+      {
+        "label": "Royal Society of Chemistry",
+        "url": "https://periodic-table.rsc.org/element/79/gold"
+      }
+    ]
+  },
+  "92": {
+    "description": "Uran ist ein schweres, natürlich vorkommendes und radioaktives Metall aus der Gruppe der Actinoide. Seine Isotope spielen insbesondere in der Kerntechnik eine Rolle.",
+    "discovery": {
+      "label": "1789",
+      "year": 1789,
+      "era": "18. Jahrhundert",
+      "people": [
+        {
+          "name": "Martin Heinrich Klaproth",
+          "role": "Identifizierte 1789 Uran als neues Element anhand seiner Verbindungen"
+        },
+        {
+          "name": "Eugène-Melchior Péligot",
+          "role": "Isolierte 1841 erstmals metallisches Uran"
+        },
+        {
+          "name": "Henri Becquerel",
+          "role": "Entdeckte 1896 die Radioaktivität von Uranverbindungen"
+        }
+      ],
+      "narrative": "Klaproth untersuchte 1789 Pechblende und erkannte darin Verbindungen eines unbekannten Elements. Das reine Metall konnte er nicht herstellen. Erst 1841 gelang Péligot die Isolierung von Uranmetall. 1896 entdeckte Becquerel an Uranverbindungen eine bis dahin unbekannte Strahlung.",
+      "note": "Entdeckung (1789), Isolierung (1841) und Nachweis der Radioaktivität (1896) sind verschiedene Ereignisse."
+    },
+    "uses": [
+      {
+        "title": "Kernenergie",
+        "text": "Uranbasierte Brennstoffe werden in Kernreaktoren zur Wärme- und Stromerzeugung eingesetzt."
+      },
+      {
+        "title": "Forschung",
+        "text": "Uran und seine Isotope dienen der Untersuchung von Kernreaktionen sowie radioaktiven Zerfallsprozessen."
+      },
+      {
+        "title": "Geologische Datierung",
+        "text": "Zerfallsreihen von Uranisotopen ermöglichen bestimmte Verfahren zur Altersbestimmung von Gesteinen."
+      },
+      {
+        "title": "Historische Glasfärbung",
+        "text": "Uranverbindungen wurden früher in kleinen Mengen zur Färbung bestimmter Gläser und Keramiken verwendet."
+      }
+    ],
+    "facts": [
+      {
+        "title": "Radioaktiv",
+        "text": "Alle Uranisotope sind radioaktiv; natürliches Uran besteht überwiegend aus Uran-238."
+      },
+      {
+        "title": "Zwei wichtige Isotope",
+        "text": "Uran-235 kann unter geeigneten Bedingungen eine Kernspaltungskettenreaktion aufrechterhalten, Uran-238 spielt andere wichtige Rollen im Brennstoffkreislauf."
+      },
+      {
+        "title": "Pechblende",
+        "text": "Das Mineral Uraninit wurde historisch als Pechblende bezeichnet und war für die Entdeckung entscheidend."
+      }
+    ],
+    "safety": "Uran und viele Uranverbindungen sind radiologisch und chemisch gefährlich. Die Abbildung ist eine Illustration, keine reale Probe.",
+    "image": {
+      "src": "assets/elements/uranium.webp",
+      "alt": "Illustration einer verschlossenen Glasvitrine mit dunklen uranhaltigen Erzbrocken",
+      "caption": "Uranhaltiges Erz in einer Vitrine, symbolisch dargestellt",
+      "kind": "KI-generierte Illustration, kein Originalfoto",
+      "credit": "Originalillustration für dieses Projekt (OpenAI, 2026)"
+    },
+    "sources": [
+      {
+        "label": "Royal Society of Chemistry",
+        "url": "https://periodic-table.rsc.org/element/92/uranium"
+      }
+    ]
+  }
+}

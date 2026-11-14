@@ -36,7 +36,7 @@
     const validFirst = PSE.byNumber.has(route?.pseElement);
     const validSecond = PSE.byNumber.has(route?.pseOther) && route?.pseOther !== route?.pseElement;
     const showProfile = target === 'profile' && validFirst && PSE.isMobile();
-    const showCompare = target === 'compare' && validFirst && validSecond;
+    const showCompare = target === 'compare' && validFirst && (route?.pseOther == null || validSecond);
 
     // Nie zwei native Modals gleichzeitig; Back vom Vergleich kann das Profil wieder öffnen.
     if (profile.open && !showProfile) profile.close();
@@ -44,7 +44,11 @@
 
     if (showProfile) {
       if (PSE.Store.get().selected !== route.pseElement) PSE.Store.select(route.pseElement);
-      if (!profile.open) profile.showModal();
+      if (!profile.open) {
+        profile.showModal();
+        // Beim erneuten Öffnen nie an der Scrollposition des vorherigen Elements starten.
+        profile.querySelector('#profile-dialog-content')?.scrollTo({ top: 0, behavior: 'instant' });
+      }
     } else if (showCompare) {
       if (PSE.Store.get().selected !== route.pseElement) PSE.Store.select(route.pseElement);
       PSE.Compare.show(route.pseElement, route.pseOther);
@@ -87,8 +91,9 @@
       const current = activeRoute();
       moveTo(createRoute('profile', number), current?.pseDialog === 'profile');
     },
-    openCompare(first, second) {
-      if (!PSE.byNumber.has(first) || !PSE.byNumber.has(second) || first === second) return;
+    openCompare(first, second = null) {
+      if (!PSE.byNumber.has(first)) return;
+      if (second != null && (!PSE.byNumber.has(second) || first === second)) return;
       if (!profile.open) previousFocus = document.activeElement;
       moveTo(createRoute('compare', first, second));
     },

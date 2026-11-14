@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 320" width="512" height="320" role="img" aria-label="Nihonium: schematisches Elementmotiv">
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#07131f"/><stop offset="1" stop-color="#12283e"/></linearGradient>
+    <linearGradient id="mineral" x2=".9" y2="1"><stop stop-color="#e6f8ff"/><stop offset=".27" stop-color="#9ec4d4"/><stop offset=".75" stop-color="#4f7a94"/><stop offset="1" stop-color="#0e253a"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#d7ebff" stop-opacity=".18"/><stop offset="1" stop-color="#6aa6e9" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="liquid" x2="1" y2=".8"><stop stop-color="#9ec4d4"/><stop offset="1" stop-color="#4f7a94"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#9ec4d4" stop-opacity=".5"/><stop offset="1" stop-color="#9ec4d4" stop-opacity="0"/></radialGradient>
+    <radialGradient id="tube"><stop stop-color="#9ec4d4" stop-opacity=".33"/><stop offset="1" stop-color="#070f20" stop-opacity=".23"/></radialGradient>
+    <filter id="glow" x="-80%" y="-100%" width="260%" height="300%"><feGaussianBlur stdDeviation="11"/></filter>
+    <filter id="shadow" x="-60%" y="-60%" width="240%" height="240%"><feDropShadow dx="0" dy="18" stdDeviation="13" flood-color="#000" flood-opacity=".45"/></filter>
+  </defs>
+  <rect width="512" height="320" fill="url(#background)"/>
+  <circle cx="263" cy="155" r="182" fill="#4f7a94" opacity=".12"/>
+  <circle cx="323" cy="293" r="2" fill="#b3dcff" opacity="0.1"/><circle cx="396" cy="70" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="469" cy="111" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="82" cy="152" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="155" cy="193" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="228" cy="234" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="301" cy="275" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="374" cy="52" r="2" fill="#b3dcff" opacity="0.2"/><circle cx="447" cy="93" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="60" cy="134" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="133" cy="175" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="206" cy="216" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="279" cy="257" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="352" cy="34" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="425" cy="75" r="2" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="38" cy="116" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="111" cy="157" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="184" cy="198" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="257" cy="239" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="330" cy="280" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="403" cy="57" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="476" cy="98" r="2" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="89" cy="139" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="162" cy="180" r="1" fill="#b3dcff" opacity="0.25"/>
+  <g opacity=".5" stroke="#5c8eaa" fill="none"><path d="M20 56h70m-70 0v24m472 184h-70m70 0v-24"/></g>
+  <circle cx="256" cy="164" r="72" fill="url(#halo)" opacity=".7"/>
+      <circle cx="256" cy="164" r="18" fill="#9ec4d4" filter="url(#glow)"/>
+      <g fill="none" stroke="#9ec4d4" opacity=".84" stroke-width="2.5">
+        <ellipse cx="256" cy="164" rx="123" ry="43" transform="rotate(20 256 164)"/>
+        <ellipse cx="256" cy="164" rx="123" ry="43" transform="rotate(-48 256 164)"/>
+        <ellipse cx="256" cy="164" rx="123" ry="43" transform="rotate(86 256 164)"/>
+      </g><circle cx="361" cy="202" r="5" fill="#fff"/><circle cx="191" cy="94" r="5" fill="#fff"/>
+      <text x="256" y="291" fill="#a6b8d2" text-anchor="middle" letter-spacing="3" font-size="10" font-family="sans-serif">NUR ATOMWEISE ERZEUGT</text>
+  <rect x="18" y="16" width="66" height="63" rx="10" fill="#08121e" fill-opacity=".9" stroke="#9ec4d4" stroke-opacity=".55"/>
+  <text x="28" y="33" font-family="sans-serif" font-size="11" fill="#92a7bb">113</text>
+  <text x="28" y="68" font-family="sans-serif" font-weight="700" font-size="32" fill="#9ec4d4">Nh</text>
+  <text x="496" y="297" text-anchor="end" fill="#c5d6e7" font-family="sans-serif" font-size="12">Nihonium</text>
+  <text x="18" y="299" fill="#708ba4" font-family="sans-serif" font-size="9" letter-spacing="1.7">SCHEMATISCHE ILLUSTRATION</text>
+</svg>

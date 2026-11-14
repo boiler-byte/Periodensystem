@@ -1,8 +1,10 @@
-/* Profilansicht und schematische Elektronenschalen (SVG). */
+/* Profilansicht mit optionalem Zusatzwissen, Stoffdaten und schematischen Elektronenschalen. */
 (function (global) {
   'use strict';
   const PSE = global.PSE;
   let rootDesktop, rootDialog;
+  let activeTab = 'data';
+  let currentNumber = null;
 
   function shellDiagram(el) {
     const counts = el.shells;
@@ -29,15 +31,37 @@
     return `<div class="property"><dt>${label}</dt><dd>${PSE.escape(value)}${unit ? `<span class="property-unit"> ${unit}</span>` : ''}</dd></div>`;
   }
 
+  function baseData(el) {
+    const config = PSE.superDigits(el.electronConfiguration);
+    return `<section class="detail-section" aria-label="Daten">
+        <div class="section-heading"><h3>Elementdaten</h3><span>Basiswerte</span></div>
+        <dl class="properties">
+          ${property('Ordnungszahl', el.number)}
+          ${property('Atommasse', PSE.format(el.atomicMass, 4), 'u')}
+          ${property('Gruppe', el.group == null ? 'f-Block' : el.group)}
+          ${property('Periode', el.period)}
+          ${property('Kovalenzradius', el.covalentRadiusPm == null ? '–' : el.covalentRadiusPm, el.covalentRadiusPm == null ? '' : 'pm')}
+          ${property('vdW-Radius', el.vdwRadiusPm == null ? '–' : el.vdwRadiusPm, el.vdwRadiusPm == null ? '' : 'pm')}
+        </dl>
+      </section>
+      <section class="detail-section shell-section" aria-label="Atombau">
+        <div class="section-heading"><h3>Elektronenschalen</h3><span>Bohr-Modell · schematisch</span></div>
+        <div class="shell-graphic">${shellDiagram(el)}</div>
+        <div class="shell-counts" aria-label="Elektronen pro Schale">${el.shells.map((count,index) => `<span title="Schale ${index+1}"><small>${'KLMNOPQ'[index]}</small><b>${count}</b></span>`).join('')}</div>
+        <div class="config-line"><span>Elektronenkonfiguration</span><code>${PSE.escape(config)}</code></div>
+        ${el.configurationNote ? `<p class="data-note">${PSE.escape(el.configurationNote)}</p>` : ''}
+      </section>
+      <div class="detail-footnote">Atomradien sind Näherungswerte. „–“ bedeutet: kein belastbarer Wert im Datensatz.</div>`;
+  }
+
   function renderEl(el, state) {
     const category = PSE.category(el.category);
     const phase = PSE.phase(el.phase);
     const favorite = state.favorites.has(el.number);
-    const config = PSE.superDigits(el.electronConfiguration);
+    const enriched = PSE.Content.get(el.number);
     const message = el.phase === 'unknown'
       ? 'Der Aggregatzustand bei Raumtemperatur ist experimentell nicht sicher belegt.'
       : `${el.name} gehört zur Elementfamilie „${category.label}“ und ist bei Raumtemperatur ${phase.label.toLowerCase()}.`;
-
     return `
       <div class="detail-topline">
         <span class="eyebrow">ELEMENTPROFIL / ${String(el.number).padStart(3,'0')}</span>
@@ -59,41 +83,22 @@
             <span class="profile-tag">${category.label}</span>
             <span class="profile-tag">${phase.label}</span>
           </div>
+          <div class="profile-heading-actions" role="group" aria-label="Aktionen für ${PSE.escape(el.name)}">
+            <button class="action-btn ${favorite ? 'is-on' : ''}" type="button" data-action="favorite" aria-pressed="${favorite}" aria-label="${favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}">${favorite ? '★' : '☆'} Fav.</button>
+            <button class="action-btn" type="button" data-action="compare">Vergleich</button>
+          </div>
         </div>
       </div>
-      <div class="profile-actions">
-        <button class="action-btn ${favorite ? 'is-on' : ''}" type="button" data-action="favorite" aria-pressed="${favorite}">
-          ${favorite ? '★ Aus Favoriten entfernen' : '☆ Als Favorit merken'}
-        </button>
-      </div>
-      <label class="compare-picker">
-        <span>VERGLEICHEN MIT</span>
-        <select data-action="compare-to" aria-label="Element zum Vergleichen mit ${PSE.escape(el.name)} auswählen">
-          <option value="">Element auswählen …</option>
-          ${PSE.Compare.options(el.number)}
-        </select>
-        <small>Die Auswahl öffnet den direkten Elementvergleich.</small>
-      </label>
-      <p class="profile-description">${message}</p>
-      <section class="detail-section" aria-label="Stoffdaten">
-        <div class="section-heading"><h3>Elementdaten</h3><span>Basiswerte</span></div>
-        <dl class="properties">
-          ${property('Ordnungszahl', el.number)}
-          ${property('Atommasse', PSE.format(el.atomicMass, 4), 'u')}
-          ${property('Gruppe', el.group == null ? 'f-Block' : el.group)}
-          ${property('Periode', el.period)}
-          ${property('Kovalenzradius', el.covalentRadiusPm == null ? '–' : el.covalentRadiusPm, el.covalentRadiusPm == null ? '' : 'pm')}
-          ${property('vdW-Radius', el.vdwRadiusPm == null ? '–' : el.vdwRadiusPm, el.vdwRadiusPm == null ? '' : 'pm')}
-        </dl>
-      </section>
-      <section class="detail-section shell-section" aria-label="Atombau">
-        <div class="section-heading"><h3>Elektronenschalen</h3><span>Bohr-Modell · schematisch</span></div>
-        <div class="shell-graphic">${shellDiagram(el)}</div>
-        <div class="shell-counts" aria-label="Elektronen pro Schale">${el.shells.map((count,index) => `<span title="Schale ${index+1}"><small>${'KLMNOPQ'[index]}</small><b>${count}</b></span>`).join('')}</div>
-        <div class="config-line"><span>Elektronenkonfiguration</span><code>${PSE.escape(config)}</code></div>
-        ${el.configurationNote ? `<p class="data-note">${PSE.escape(el.configurationNote)}</p>` : ''}
-      </section>
-      <div class="detail-footnote">Atomradien sind Näherungswerte. „–“ bedeutet: kein belastbarer Wert im Datensatz.</div>
+      ${enriched ? `
+        ${PSE.Content.picture(enriched)}
+        ${PSE.Content.navigation(activeTab)}
+        ${activeTab === 'data' ? baseData(el) : PSE.Content.render(enriched, activeTab)}
+        ${PSE.Content.sourceLinks(enriched)}
+      ` : `
+        <p class="profile-description">${PSE.escape(message)}</p>
+        <p class="content-unavailable">Für dieses Element sind derzeit keine redaktionellen Zusatzdaten hinterlegt. Die chemischen Grunddaten bleiben verfügbar.</p>
+        ${baseData(el)}
+      `}
     `;
   }
 
@@ -103,6 +108,15 @@
     PSE.Dialogs.updateProfile(number);
   }
 
+  function revealTab(root) {
+    const row = root.querySelector('.content-tabs');
+    const selected = row?.querySelector('.is-active');
+    if (!row || !selected) return;
+    // Tabwechsel soll direkt den zugehörigen Inhalt zeigen (insb. in mobilen Dialogen).
+    root.scrollTop += row.getBoundingClientRect().top - root.getBoundingClientRect().top - 12;
+    row.scrollLeft = Math.max(0, selected.offsetLeft - row.offsetLeft - (row.clientWidth - selected.offsetWidth) / 2);
+  }
+
   function onClick(event) {
     const button = event.target.closest('[data-action]');
     if (!button) return;
@@ -110,35 +124,59 @@
       case 'prev': selectAdjacent(-1); break;
       case 'next': selectAdjacent(1); break;
       case 'favorite': PSE.Store.toggleFavorite(PSE.Store.get().selected); break;
+      case 'compare': PSE.Dialogs.openCompare(PSE.Store.get().selected); break;
+      case 'content-tab': {
+        const newTab = button.dataset.tab;
+        if (!PSE.Content.tabs.some(tab => tab.id === newTab) || !PSE.Content.has(PSE.Store.get().selected)) return;
+        if (activeTab === newTab) return;
+        activeTab = newTab;
+        PSE.Details.render(PSE.Store.get());
+        const inDialog = Boolean(event.currentTarget.closest('dialog'));
+        const parent = inDialog ? rootDialog : rootDesktop;
+        parent.querySelector(`[data-tab="${newTab}"]`)?.focus({preventScroll: true});
+        revealTab(parent);
+        break;
+      }
     }
   }
-
-  function onChange(event) {
-    const input = event.target.closest('[data-action="compare-to"]');
-    if (!input || !input.value) return;
-    const base = PSE.Store.get().selected;
-    const partner = Number(input.value);
-    if (PSE.byNumber.has(partner) && base !== partner) {
-      PSE.Dialogs.openCompare(base, partner);
-    }
+  function onTabKeydown(event) {
+    if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+    if (!event.target.matches('[data-action="content-tab"]')) return;
+    const list = PSE.Content.tabs;
+    const current = list.findIndex(item => item.id === event.target.dataset.tab);
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? list.length - 1
+      : (current + (event.key === 'ArrowRight' ? 1 : -1) + list.length) % list.length;
+    event.preventDefault();
+    activeTab = list[next].id;
+    PSE.Details.render(PSE.Store.get());
+    event.currentTarget.querySelector(`[data-tab="${activeTab}"]`)?.focus({preventScroll: true});
+    revealTab(event.currentTarget);
   }
-
   PSE.Details = {
     init() {
       rootDesktop = document.getElementById('detail-container');
       rootDialog = document.getElementById('profile-dialog-content');
       [rootDesktop, rootDialog].forEach(root => {
         root.addEventListener('click', onClick);
-        root.addEventListener('change', onChange);
+        root.addEventListener('keydown', onTabKeydown);
       });
       document.querySelector('[data-action="close-profile"]').addEventListener('click', () => PSE.Dialogs.close());
     },
     render(state) {
       const el = PSE.byNumber.get(state.selected);
       if (!el) return;
+      const changed = currentNumber !== el.number;
+      if (changed) {
+        currentNumber = el.number;
+        activeTab = 'data';
+      }
+      const scrollD = changed ? 0 : rootDesktop.scrollTop;
+      const scrollM = changed ? 0 : rootDialog.scrollTop;
       const html = renderEl(el, state);
       rootDesktop.innerHTML = html;
       rootDialog.innerHTML = html;
+      rootDesktop.scrollTop = scrollD;
+      rootDialog.scrollTop = scrollM;
     }
   };
 })(window);

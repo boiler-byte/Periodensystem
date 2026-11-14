@@ -26,7 +26,7 @@
     tile.style.gridRow = String(el.y + 1);
     tile.style.setProperty('--mass-rgb', PSE.massColor(el.atomicMass));
     tile.title = `${el.number} · ${el.name} (${el.symbol})`;
-    tile.setAttribute('aria-label', `${el.name}, Ordnungszahl ${el.number}, ${PSE.category(el.category).label}`);
+    tile.setAttribute('aria-label', `${el.name}, Ordnungszahl ${el.number}, ${PSE.category(el.category).label}${PSE.Content.has(el.number) ? ', mit Zusatzwissen' : ''}`);
     tile.setAttribute('aria-pressed', 'false');
     tile.innerHTML = `
       <span class="tile-number">${el.number}</span>

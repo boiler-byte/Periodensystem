@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 320" width="512" height="320" role="img" aria-label="Copernicium: schematisches Elementmotiv">
+  <defs>
+    <linearGradient id="background" x2="1" y2="1"><stop stop-color="#07131f"/><stop offset="1" stop-color="#12283e"/></linearGradient>
+    <linearGradient id="mineral" x2=".9" y2="1"><stop stop-color="#e6f8ff"/><stop offset=".27" stop-color="#76bbff"/><stop offset=".75" stop-color="#3055a6"/><stop offset="1" stop-color="#0e253a"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#d7ebff" stop-opacity=".18"/><stop offset="1" stop-color="#6aa6e9" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="liquid" x2="1" y2=".8"><stop stop-color="#76bbff"/><stop offset="1" stop-color="#3055a6"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#76bbff" stop-opacity=".5"/><stop offset="1" stop-color="#76bbff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="tube"><stop stop-color="#76bbff" stop-opacity=".33"/><stop offset="1" stop-color="#070f20" stop-opacity=".23"/></radialGradient>
+    <filter id="glow" x="-80%" y="-100%" width="260%" height="300%"><feGaussianBlur stdDeviation="11"/></filter>
+    <filter id="shadow" x="-60%" y="-60%" width="240%" height="240%"><feDropShadow dx="0" dy="18" stdDeviation="13" flood-color="#000" flood-opacity=".45"/></filter>
+  </defs>
+  <rect width="512" height="320" fill="url(#background)"/>
+  <circle cx="263" cy="155" r="182" fill="#3055a6" opacity=".12"/>
+  <circle cx="300" cy="286" r="2" fill="#b3dcff" opacity="0.1"/><circle cx="373" cy="63" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="446" cy="104" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="59" cy="145" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="132" cy="186" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="205" cy="227" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="278" cy="268" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="351" cy="45" r="2" fill="#b3dcff" opacity="0.2"/><circle cx="424" cy="86" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="37" cy="127" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="110" cy="168" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="183" cy="209" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="256" cy="250" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="329" cy="291" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="402" cy="68" r="2" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="475" cy="109" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="88" cy="150" r="1" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="161" cy="191" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="234" cy="232" r="1" fill="#b3dcff" opacity="0.25"/><circle cx="307" cy="273" r="1" fill="#b3dcff" opacity="0.30000000000000004"/><circle cx="380" cy="50" r="1" fill="#b3dcff" opacity="0.1"/><circle cx="453" cy="91" r="2" fill="#b3dcff" opacity="0.15000000000000002"/><circle cx="66" cy="132" r="1" fill="#b3dcff" opacity="0.2"/><circle cx="139" cy="173" r="1" fill="#b3dcff" opacity="0.25"/>
+  <g opacity=".5" stroke="#5c8eaa" fill="none"><path d="M20 56h70m-70 0v24m472 184h-70m70 0v-24"/></g>
+  <circle cx="256" cy="164" r="72" fill="url(#halo)" opacity=".7"/>
+      <circle cx="256" cy="164" r="18" fill="#76bbff" filter="url(#glow)"/>
+      <g fill="none" stroke="#76bbff" opacity=".84" stroke-width="2.5">
+        <ellipse cx="256" cy="164" rx="123" ry="43" transform="rotate(20 256 164)"/>
+        <ellipse cx="256" cy="164" rx="123" ry="43" transform="rotate(-48 256 164)"/>
+        <ellipse cx="256" cy="164" rx="123" ry="43" transform="rotate(86 256 164)"/>
+      </g><circle cx="361" cy="202" r="5" fill="#fff"/><circle cx="191" cy="94" r="5" fill="#fff"/>
+      <text x="256" y="291" fill="#a6b8d2" text-anchor="middle" letter-spacing="3" font-size="10" font-family="sans-serif">NUR ATOMWEISE ERZEUGT</text>
+  <rect x="18" y="16" width="66" height="63" rx="10" fill="#08121e" fill-opacity=".9" stroke="#76bbff" stroke-opacity=".55"/>
+  <text x="28" y="33" font-family="sans-serif" font-size="11" fill="#92a7bb">112</text>
+  <text x="28" y="68" font-family="sans-serif" font-weight="700" font-size="32" fill="#76bbff">Cn</text>
+  <text x="496" y="297" text-anchor="end" fill="#c5d6e7" font-family="sans-serif" font-size="12">Copernicium</text>
+  <text x="18" y="299" fill="#708ba4" font-family="sans-serif" font-size="9" letter-spacing="1.7">SCHEMATISCHE ILLUSTRATION</text>
+</svg>
