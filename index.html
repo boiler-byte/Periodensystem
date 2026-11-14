@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Interaktives Periodensystem mit 118 Elementen. Vollständig offline und ohne Frameworks.">
+  <title>Periodensystem</title>
+  <meta name="theme-color" content="#080f1b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Periodensystem">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Klassische Scripts mit defer: funktionieren auch per Doppelklick über file:// -->
+  <script src="data/elements.js" defer></script>
+  <script src="js/core.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/filters.js" defer></script>
+  <script src="js/table.js" defer></script>
+  <script src="js/details.js" defer></script>
+  <script src="js/compare.js" defer></script>
+  <script src="js/dialogs.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/pwa.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="site-header">
+      <div class="brand" aria-label="Periodensystem">
+        <div class="brand-icon" aria-hidden="true"><small>04</small><strong>Be</strong></div>
+        <div class="brand-name">Perioden<span>system</span><small>CHEMISCHE ELEMENTE ENTDECKEN</small></div>
+      </div>
+      <div class="header-actions">
+        <span class="online-free"><span></span>100 % offline</span>
+        <button class="header-btn" id="random-element" type="button" title="Zufälliges Element öffnen" aria-label="Zufälliges Element öffnen"><span aria-hidden="true">↝</span> <span class="action-label">Zufall</span></button>
+        <button class="header-btn" id="theme-toggle" type="button" title="Farbschema wechseln">☀ Hell</button>
+        <button class="header-btn install-btn" id="install-app" type="button" hidden>↓ <span class="action-label">Installieren</span></button>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Einführung">
+      <div class="hero-copy">
+        <div class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> CHEMIE / ELEMENTKUNDE</div>
+        <h1>Die Bausteine<br><em>unserer Welt.</em></h1>
+        <p>118 Elemente. Ein Universum voller Entdeckungen. Wähle ein Element aus, durchsuche das System oder vergleiche seine Eigenschaften.</p>
+      </div>
+      <div class="hero-stats" aria-label="Kennzahlen">
+        <div class="hero-stat"><strong>118</strong><span>Elemente</span></div>
+        <div class="hero-stat"><strong>18</strong><span>Gruppen</span></div>
+        <div class="hero-stat"><strong>07</strong><span>Perioden</span></div>
+      </div>
+    </section>
+
+    <main>
+      <section class="filter-panel" aria-label="Elemente durchsuchen und filtern">
+        <label class="search-control" for="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Name, Symbol, Ordnungszahl ..." autocomplete="off" spellcheck="false" aria-label="Elemente suchen">
+          <kbd>/</kbd>
+        </label>
+        <label class="select-control" for="category-filter">
+          <span>ELEMENTFAMILIE</span>
+          <select id="category-filter"><option value="all">Alle Familien</option></select>
+        </label>
+        <label class="select-control" for="phase-filter">
+          <span>AGGREGATZUSTAND</span>
+          <select id="phase-filter"><option value="all">Alle Zustände</option></select>
+        </label>
+        <button class="filter-btn" id="favorites-only" type="button" aria-pressed="false">☆ Nur Favoriten<span id="favorite-total"></span></button>
+        <button class="reset-btn" id="reset-filters" type="button" disabled>Zurücksetzen ↺</button>
+      </section>
+
+      <div class="workspace">
+        <section class="atlas-panel" aria-labelledby="table-title">
+          <div class="atlas-heading">
+            <div><div class="eyebrow">DIE ELEMENTKARTE</div><h2 id="table-title">Periodensystem</h2></div>
+            <div class="view-switch" id="view-switch" role="group" aria-label="Farbdarstellung">
+              <button type="button" data-view="family" class="is-active" aria-pressed="true">Familien</button>
+              <button type="button" data-view="phase" aria-pressed="false">Zustand</button>
+              <button type="button" data-view="mass" aria-pressed="false">Atommasse</button>
+            </div>
+          </div>
+
+          <div class="table-scroll" role="region" tabindex="0" aria-label="Periodensystem – horizontal scrollbar auf kleinen Bildschirmen">
+            <div id="periodic-grid" class="periodic-grid" data-view="family" aria-label="Periodensystem mit 118 auswählbaren Elementen"></div>
+          </div>
+          <div class="table-meta">
+            <span id="match-count" role="status" aria-live="polite">118 von 118 Elementen angezeigt</span>
+            <span>Element wählen <span aria-hidden="true">↗</span></span>
+          </div>
+          <p class="empty-note" id="empty-note" hidden>Keine Treffer. Passe deine Suche an oder setze die Filter zurück.</p>
+          <div class="legend" id="legend" aria-label="Farblegende und schnelle Filter"></div>
+          <div class="keyboard-hint">Tipp: Mit <kbd>/</kbd> suchen. Mit <kbd>← ↑ → ↓</kbd> navigieren. Klick auf eine Legende filtert.</div>
+        </section>
+
+        <aside id="detail-container" class="detail-panel" aria-label="Details zum ausgewählten Element">
+          <p class="loading-placeholder">Elementprofil wird geladen ...</p>
+        </aside>
+      </div>
+
+      <footer class="site-footer">
+        <div><strong>PERIODENSYSTEM</strong><span>Ein unabhängiges Offline-Demoprojekt · HTML / CSS / Vanilla JavaScript</span></div>
+        <p>Elementdaten mit RDKit-Referenzwerten erstellt. <a href="QUELLEN.md" target="_blank" rel="noopener">Datenquellen & Hinweise ↗</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Native Dialoge: schließen über Esc, Zurück-Taste oder Schließen-Button. -->
+  <dialog id="profile-dialog" class="profile-dialog" aria-labelledby="profile-dialog-title">
+    <div class="profile-dialog-heading">
+      <span id="profile-dialog-title" class="eyebrow">ELEMENTPROFIL</span>
+      <button type="button" class="icon-btn" data-action="close-profile" aria-label="Elementprofil schließen">✕</button>
+    </div>
+    <div id="profile-dialog-content" class="profile-dialog-content"></div>
+  </dialog>
+  <dialog id="compare-dialog" class="compare-dialog" aria-label="Elementvergleich">
+    <div id="compare-dialog-content"></div>
+  </dialog>
+</body>
+</html>
